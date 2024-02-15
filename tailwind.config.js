@@ -5,6 +5,9 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      'vazirmatn': ['vazirmatn-rd', 'ui-sans-serif', 'system-ui']
+    },
     extend: {},
   },
   plugins: [],
