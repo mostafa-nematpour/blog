@@ -8,7 +8,11 @@ export default {
     fontFamily: {
       'vazirmatn': ['vazirmatn-rd', 'ui-sans-serif', 'system-ui']
     },
-    extend: {},
+    extend: {
+      colors: {
+        'text-color-2': '#656d75',
+      },
+    },
   },
   plugins: [],
 }

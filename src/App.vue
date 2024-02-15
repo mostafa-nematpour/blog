@@ -6,8 +6,7 @@ import { RouterLink, RouterView } from 'vue-router'
   <header>
 
     <div class="wrapper">
-      <p>hi this is init</p>
-      <nav>
+      <nav class="flex gap-5">
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/blogs-list">blogs</RouterLink>
