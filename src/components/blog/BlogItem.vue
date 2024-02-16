@@ -1,10 +1,16 @@
 <script setup lang="ts">
 defineProps(['blog'])
+
+const blogLink = (id: Number, slug: String) => {
+    return `/blogs/${id}/${slug}`
+}
+
 </script>
 
 <template>
     <article class="group/item blog-item font-vazirmatn py-4 border-top">
-        <RouterLink to="" :title="blog.title" class="overflow-hidden block w-full rounded-[6px] mb-4">
+        <RouterLink :to="blogLink(blog.id, blog.slug)" :title="blog.title"
+            class="overflow-hidden block w-full rounded-[6px] mb-4">
             <img class="w-full h-auto ease-out duration-300 group-hover/item:scale-[103%]" :src="blog.imageURL" alt="">
         </RouterLink>
         <div v-for="categoryItem in blog.categories" :key="categoryItem.id" class="mb-1">
@@ -14,7 +20,7 @@ defineProps(['blog'])
                 {{ categoryItem.title }}
             </RouterLink>
         </div>
-        <RouterLink to="" :title="blog.title" class="mb-3 block">
+        <RouterLink :to="blogLink(blog.id, blog.slug)" :title="blog.title" class="mb-3 block">
             <h2 class="text-xl font-semibold ">{{ blog.title }}</h2>
         </RouterLink>
         <p class="font-normal text-text-color-2 line-clamp-3">
