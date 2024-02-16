@@ -32,7 +32,7 @@ if (!blog.value) {
                         {{ categoryItem.title }}
                     </RouterLink>
                 </div>
-                <div class="blog-content font-vazirmatn font-normal" v-html="blog?.body">
+                <div class="blog-content text-base text-justify font-vazirmatn font-normal" v-html="blog?.body">
                 </div>
             </div>
             <div class="absolute top-0 right-0 left-0 w-full max-h-[240px] h-auto aspect-[16/5]"

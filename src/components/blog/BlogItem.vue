@@ -11,7 +11,8 @@ const blogLink = (id: Number, slug: String) => {
     <article class="group/item blog-item font-vazirmatn py-4 px-6 border-top rounded-b-[10px]">
         <RouterLink :to="blogLink(blog.id, blog.slug)" :title="blog.title"
             class="overflow-hidden block w-full rounded-[6px] mb-4">
-            <img class="w-full h-auto ease-out duration-300 group-hover/item:scale-[103%]" :src="blog.imageURL" alt="">
+            <img class="w-full h-auto ease-out aspect-[16/9] flex justify-center text-black object-cover duration-300 group-hover/item:scale-[103%]"
+                :src="blog.imageURL" alt="">
         </RouterLink>
         <div v-for="categoryItem in blog.categories" :key="categoryItem.id" class="mb-1">
             <RouterLink to=""
@@ -41,8 +42,8 @@ const blogLink = (id: Number, slug: String) => {
 .category {
     background-clip: border-box;
     background-clip: text !important;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
 }
 
 .border-top {
