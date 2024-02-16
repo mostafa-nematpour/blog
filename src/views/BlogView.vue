@@ -14,8 +14,8 @@ if (!blog.value) {
 </script>
 
 <template>
-    <div dir="rtl" class="relative">
-        <div class="z-50 container max-w-[760px] bg-bg-color-2 pb-12 px-6 pt-10 w-full mx-auto">
+    <div dir="rtl" class="relative font-vazirmatn">
+        <div class="z-50 container max-w-[760px] bg-bg-color-2 pb-12 sm:px-6 px-3 pt-10 w-full mx-auto">
             <div class="z-50 relative rounded-[16px] overflow-hidden">
                 <img class="w-full blog-main-image h-auto aspect-[16/9] flex justify-center text-white object-cover"
                     :src="blog?.imageURL" :alt="blog?.imageAlt">

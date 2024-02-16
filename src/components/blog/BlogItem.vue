@@ -20,12 +20,15 @@ const blogLink = (id: Number, slug: String) => {
                 {{ categoryItem.title }}
             </RouterLink>
         </div>
-        <RouterLink :to="blogLink(blog.id, blog.slug)" :title="blog.title" class="mb-3 block">
+        <RouterLink :to="blogLink(blog.id, blog.slug)" :title="blog.title" class="mb-3 inline-block">
             <h2 class="text-xl font-semibold ">{{ blog.title }}</h2>
         </RouterLink>
-        <p class="font-normal text-text-color-2 line-clamp-3">
-            {{ blog.description }}
-        </p>
+        <RouterLink :to="blogLink(blog.id, blog.slug)">
+            <p class="font-normal text-text-color-2 line-clamp-3">
+                {{ blog.description }}
+            </p>
+        </RouterLink>
+
         <div>
             <span></span>
             <time datetime=""></time>
@@ -41,6 +44,7 @@ const blogLink = (id: Number, slug: String) => {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 .border-top {
     border-top: 1px solid #d0d7de !important;
 }
