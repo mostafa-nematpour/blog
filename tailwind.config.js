@@ -11,6 +11,7 @@ export default {
     extend: {
       colors: {
         'text-color-2': '#656d75',
+        'bg-color-2': '#f6f8fa'
       },
     },
   },
