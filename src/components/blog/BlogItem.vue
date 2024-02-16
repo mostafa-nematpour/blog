@@ -8,7 +8,7 @@ const blogLink = (id: Number, slug: String) => {
 </script>
 
 <template>
-    <article class="group/item blog-item font-vazirmatn py-4 border-top">
+    <article class="group/item blog-item font-vazirmatn py-4 px-6 border-top rounded-b-[10px]">
         <RouterLink :to="blogLink(blog.id, blog.slug)" :title="blog.title"
             class="overflow-hidden block w-full rounded-[6px] mb-4">
             <img class="w-full h-auto ease-out duration-300 group-hover/item:scale-[103%]" :src="blog.imageURL" alt="">
@@ -41,7 +41,6 @@ const blogLink = (id: Number, slug: String) => {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .border-top {
     border-top: 1px solid #d0d7de !important;
 }
