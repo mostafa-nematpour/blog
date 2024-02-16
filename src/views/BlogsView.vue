@@ -9,7 +9,7 @@ const blogs = computed(() => {
 </script>
 
 <template>
-    <div dir="rtl" class="container max-w-[540px] w-full mx-auto">
+    <div dir="rtl" class="container max-w-[580px] w-full mx-auto">
         <template v-for="blogItem in blogs" :key="blogItem.id">
             <BlogItem :blog="blogItem" />
         </template>
