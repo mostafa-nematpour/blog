@@ -13,7 +13,7 @@ export const useBlogStore = defineStore('blog', () => {
       author: 'مصطفی نعمت‌پور',
       imageURL: '/public/image/hello-word-image.png',
       imageAlt: 'متن hello world که روی یک تصویر با زمینه تیره نوشته شده',
-      blogColor: '#0C111C',
+      blogColor: '#1f2328',
       categories: [
         {
           id: 1,
