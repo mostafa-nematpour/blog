@@ -4,10 +4,69 @@
 @tailwind utilities;
 
 .blog-content p {
+  font-size: 1rem;
   margin-bottom: 1rem;
   line-height: 1.8rem;
   margin-right: -14px;
   padding-right: 14px;
   margin-left: -14px;
   padding-left: 14px;
+}
+
+.blog-content h2 {
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+  display: block;
+  margin-top: 1rem;
+  line-height: 1.8rem;
+  margin-right: -14px;
+  padding-right: 14px;
+  margin-left: -14px;
+  padding-left: 14px;
+}
+
+.blog-content h3 {
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  display: block;
+  margin-top: 0.8rem;
+  line-height: 1.8rem;
+  margin-right: -14px;
+  padding-right: 14px;
+  margin-left: -14px;
+  padding-left: 14px;
+}
+
+.blog-content a {
+  color: #0000ff;
+}
+
+.blog-content code {
+  background-color: #e0e0e0;
+  padding: 0.1rem 0.2rem;
+  border-radius: 4px;
+}
+
+.blog-content pre {
+  direction: ltr;
+  background-color: #e0e0e0;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  overflow: auto;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.blog-content img {
+  height: auto;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
 }

@@ -22,17 +22,18 @@ if (!blog.value) {
             </div>
 
             <div class="mt-4 p-2">
-                <h1 class="mb-4 text-3xl font-extrabold">
-                    {{ blog?.title }}
-                </h1>
-                <div v-for="categoryItem in blog?.categories" :key="categoryItem.id" class="mb-3">
-                    <RouterLink to=""
+
+                <div class="mb-3 flex gap-3">
+                    <RouterLink to="" v-for="categoryItem in blog?.categories" :key="categoryItem.id"
                         :style="{ background: `-webkit-linear-gradient(315deg, ${categoryItem.color[0]} 25%, ${categoryItem.color[1]})` }"
                         class="font-semibold text-sm category">
                         {{ categoryItem.title }}
                     </RouterLink>
                 </div>
-                <div class="blog-content text-base text-justify font-vazirmatn font-normal" v-html="blog?.body">
+                <h1 class="mb-4 text-3xl font-extrabold">
+                    {{ blog?.title }}
+                </h1>
+                <div class="blog-content text-base font-vazirmatn font-normal" v-html="blog?.body">
                 </div>
             </div>
             <div class="absolute top-0 right-0 left-0 w-full max-h-[240px] h-auto aspect-[16/5]"
