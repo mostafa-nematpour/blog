@@ -1,24 +1,25 @@
 <script setup lang="ts">
 import { useBlogStore } from '@/stores/blog';
-import { ref } from 'vue';
+import type { Post } from '@/types/post';
+import { ref, type Ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute();
 const router = useRouter();
 const id = Number(route.params.id);
 const store = useBlogStore();
-const blog = ref(store.getBlog(id));
+const blog: Ref<Post | undefined> = ref(store.getBlog(id));
 if (!blog.value) {
     router.push("/404")
 }
 </script>
 
 <template>
-    <div dir="rtl" class="relative font-sahel">
+    <div v-if="blog" dir="rtl" class="relative font-sahel">
         <div class="z-50 container max-w-[760px] bg-bg-color-2 pb-12 sm:px-6 px-3 pt-10 w-full mx-auto">
             <div class="z-50 relative rounded-[16px] overflow-hidden">
                 <img class="w-full blog-main-image h-auto aspect-[16/9] flex justify-center text-white object-cover"
-                    :src="blog?.imageURL" :alt="blog?.imageAlt">
+                    :src="blog.imageURL" :alt="blog.imageAlt">
             </div>
 
             <div class="mt-4 p-2">

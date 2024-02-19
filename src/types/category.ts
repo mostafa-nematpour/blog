@@ -1,6 +1,6 @@
 interface Category {
   id: number
   title: string
-  color: String[]
+  color: string[]
 }
 export type { Category }
