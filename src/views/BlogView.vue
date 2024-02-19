@@ -14,7 +14,7 @@ if (!blog.value) {
 </script>
 
 <template>
-    <div dir="rtl" class="relative font-vazirmatn">
+    <div dir="rtl" class="relative font-sahel">
         <div class="z-50 container max-w-[760px] bg-bg-color-2 pb-12 sm:px-6 px-3 pt-10 w-full mx-auto">
             <div class="z-50 relative rounded-[16px] overflow-hidden">
                 <img class="w-full blog-main-image h-auto aspect-[16/9] flex justify-center text-white object-cover"
@@ -22,7 +22,6 @@ if (!blog.value) {
             </div>
 
             <div class="mt-4 p-2">
-
                 <div class="mb-3 flex gap-3">
                     <RouterLink to="" v-for="categoryItem in blog?.categories" :key="categoryItem.id"
                         :style="{ background: `-webkit-linear-gradient(315deg, ${categoryItem.color[0]} 25%, ${categoryItem.color[1]})` }"
@@ -33,7 +32,7 @@ if (!blog.value) {
                 <h1 class="mb-4 text-3xl font-extrabold">
                     {{ blog?.title }}
                 </h1>
-                <div class="blog-content text-base font-vazirmatn font-normal" v-html="blog?.body">
+                <div class="blog-content text-base font-sahel font-normal" v-html="blog?.body">
                 </div>
             </div>
             <div class="absolute top-0 right-0 left-0 w-full max-h-[240px] h-auto aspect-[16/5]"
