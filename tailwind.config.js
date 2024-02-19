@@ -6,7 +6,8 @@ export default {
   ],
   theme: {
     fontFamily: {
-      'vazirmatn': ['vazirmatn-rd', 'ui-sans-serif', 'system-ui']
+      'vazirmatn': ['vazirmatn-rd', 'ui-sans-serif', 'system-ui'],
+      'sahel' : ['sahel']
     },
     extend: {
       colors: {
