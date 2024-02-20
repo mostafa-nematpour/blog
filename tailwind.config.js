@@ -7,12 +7,13 @@ export default {
   theme: {
     fontFamily: {
       'vazirmatn': ['vazirmatn-rd', 'ui-sans-serif', 'system-ui'],
-      'sahel' : ['sahel']
+      'sahel': ['sahel']
     },
     extend: {
       colors: {
-        'text-color-2': '#656d75',
-        'bg-color-2': '#f6f8fa'
+        'text-color-2': 'var(--text-color-2)',
+        'bg-color-2': 'var(--bg-color-2)',
+        'bg-color-3': 'var(--bg-color-3)'
       },
     },
   },

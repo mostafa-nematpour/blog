@@ -1,5 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    --text-color-2: #656d75;
+    --bg-color-2: #f6f8fa;
+    --bg-color-3: #22272e;
+    --color-primary: #4285f4;
+    --color-secondary: #34a853;
+    --color-buttons: #fbbc05;
+    --color-typography: #ea4335;
+  }
+}
+
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
+  --site-text-color-2: '#ea0303';
+  /* --site-text-color-2: '#656d75'; */
+
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
   --vt-c-white-mute: #f2f2f2;

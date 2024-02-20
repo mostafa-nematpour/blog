@@ -23,6 +23,11 @@ const router = createRouter({
       component: BlogView
     },
     {
+      path: '/editor',
+      name: 'editor',
+      component: () => import('../views/EditorPage.vue')
+    },
+    {
       path: '/404',
       name: 'NotFound',
       component: NotFound
