@@ -11,6 +11,8 @@ interface Post {
   blogColor: string
   body: string
   categories: Category[]
+  createAt: string
+  updateAt: string
 }
 
 export type { Post }
