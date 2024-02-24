@@ -2,7 +2,7 @@
 defineProps(['blog'])
 
 const blogLink = (id: Number, slug: String) => {
-    return `/blogs/${id}/${slug}`
+    return `/posts/${id}/${slug}`
 }
 
 </script>

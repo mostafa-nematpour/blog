@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import BlogItem from '@/components/blog/BlogItem.vue';
 import { useBlogStore } from '@/stores/blog';
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 const store = useBlogStore();
 const blogs = computed(() => {
     return store.blogsData;
