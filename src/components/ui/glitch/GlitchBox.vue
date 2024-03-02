@@ -15,10 +15,7 @@ let baseFontSize = 128;
 const restCanvas = () => {
     destroyCanvas()
     initCanvas()
-
-
 }
-
 
 onMounted(() => {
     initCanvas()
@@ -27,9 +24,11 @@ onMounted(() => {
 onUnmounted(() => {
     destroyCanvas()
 })
+
 function destroyCanvas() {
     $canvas = undefined;
 }
+
 function initCanvas() {
 
     /**
@@ -238,8 +237,6 @@ function initCanvas() {
     }
     setTimeout(callNext, settings.words[currentIndex].time);
 
-    // setInterval(nextWord, 2000)
-
     /**
      * Utils
      **/
@@ -262,7 +259,7 @@ function initCanvas() {
 .canvas-container {
     /* min-width: 512px;
     min-height: 192px; */
-    background: #111;
+    /* background: #111; */
     border-radius: 5px;
     overflow: hidden;
     /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11),

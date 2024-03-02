@@ -1,5 +1,6 @@
 <script setup>
 import GlitchBox from '~/components/ui/glitch/GlitchBox.vue';
+import AnimatedStar from '~/components/ui/background/AnimatedStar.vue';
 import { onMounted, onUnmounted, ref } from 'vue'
 import { introSentences } from '~/data/site/intro'
 
@@ -15,8 +16,9 @@ const bodyClick = () => {
 onMounted(() => {
     showLinksTimeout = setTimeout(() => {
         showLinks.value = true
-    }, 16000)
+    }, 15000)
 })
+
 onUnmounted(() => {
     clearTimeout(showLinksTimeout)
 })
@@ -24,24 +26,30 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <main @click="bodyClick" class="bg-[#111] w-full flex flex-col font-sahel">
-        <glitch-box :words="sentences" class="max-w-[860px] w-full mt-6"></glitch-box>
-        <div class="flex-1 flex items-center justify-center">
-            <nav class="flex justify-center">
-                <Transition>
-                    <RouterLink v-if="showLinks" to="/posts"
-                        class="font-medium text-white text-2xl border border-cyan-50 pt-1 pb-1.5 px-3 rounded-md">
-                        لیست پست‌ها
-                    </RouterLink>
-                </Transition>
-            </nav>
-        </div>
-    </main>
+    <div class="bg-[#111] relative overflow-hidden">
+
+        <main @click.once="bodyClick" class=" w-full flex flex-col font-sahel">
+            <GlitchBox :words="sentences" class="max-w-[860px] w-full mt-6"></GlitchBox>
+            <div class="flex-1 flex items-center justify-center">
+                <nav class="flex justify-center">
+                    <Transition>
+                        <RouterLink v-show="showLinks" to="/posts"
+                            class="font-medium text-white text-2xl border border-cyan-50 pt-1 pb-1.5 px-3 rounded-md">
+                            لیست پست‌ها
+                        </RouterLink>
+                    </Transition>
+                </nav>
+            </div>
+        </main>
+
+        <!-- <AnimatedStar></AnimatedStar> -->
+    </div>
 </template>
 
 <style scoped>
 main {
     height: 100vh;
     max-height: -webkit-fill-available;
+    /* background: radial-gradient(#480d35 ,#17151d); */
 }
 </style>
