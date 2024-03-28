@@ -46,6 +46,8 @@ function initCanvas() {
     $canvas = document.getElementById('glitch-canvas')
 
     const updateCanvasSize = () => {
+        if (!canvasContainer.value) return
+
         const { innerWidth, innerHeight, devicePixelRatio } = window
 
         // const width = 512
