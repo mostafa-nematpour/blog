@@ -9,6 +9,8 @@ const settings = useCookie('siteSettings', {
   sameSite: 'lax'
 })
 
+provide('siteSettings', settings)
+
 const classObject = computed(() => {
   const theme = settings.value.theme
   return [theme, settings.value.dir == 'rtl' ? 'rtl' : 'ltr']
@@ -16,5 +18,7 @@ const classObject = computed(() => {
 </script>
 
 <template>
-  <NuxtPage :class="classObject" />
+  <div :class="classObject" class="bg-c-bg">
+    <NuxtPage />
+  </div>
 </template>

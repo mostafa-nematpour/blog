@@ -21,7 +21,7 @@ const blogLink = (id: Number, slug: String) => {
                 {{ categoryItem.title }}
             </RouterLink>
         </div>
-        <RouterLink :to="blogLink(blog.id, blog.slug)" :title="blog.title" class="mb-3 inline-block">
+        <RouterLink :to="blogLink(blog.id, blog.slug)" :title="blog.title" class="mb-3 inline-block text-c-text">
             <h2 class="text-xl font-bold ">{{ blog.title }}</h2>
         </RouterLink>
         <RouterLink :to="blogLink(blog.id, blog.slug)">
