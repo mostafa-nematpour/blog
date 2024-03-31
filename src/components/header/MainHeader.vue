@@ -1,11 +1,11 @@
 <script setup>
 import ToggleTheme from '../ui/button/ToggleTheme.vue'
-const siteSettings = inject('siteSettings')
+// const siteSettings = inject('siteSettings')
 </script>
 
 <template>
   <div>
-    <ToggleTheme v-model="siteSettings.theme"></ToggleTheme>
+    <ToggleTheme ></ToggleTheme>
   </div>
 </template>
 

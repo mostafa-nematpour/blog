@@ -13,5 +13,23 @@ export default defineNuxtConfig({
       tailwindcss: {},
       autoprefixer: {}
     }
+  },
+  app: {
+    head: {
+      script: [
+        {
+          hid: 'check-dark-mode',
+          innerHTML: `
+        (() => {
+            const e = localStorage.getItem("vitepress-theme-appearance") || "auto";
+            const a = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            if (!e || e === "auto" ? a : e === "dark") {
+              document.documentElement.classList.add("dark");
+            }
+          })();
+        `
+        }
+      ]
+    }
   }
 })
