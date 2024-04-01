@@ -21,7 +21,7 @@ export default defineNuxtConfig({
           hid: 'check-dark-mode',
           innerHTML: `
         (() => {
-            const e = localStorage.getItem("vitepress-theme-appearance") || "auto";
+            const e = localStorage.getItem("site-theme") || "auto";
             const a = window.matchMedia("(prefers-color-scheme: dark)").matches;
             if (!e || e === "auto" ? a : e === "dark") {
               document.documentElement.classList.add("dark");

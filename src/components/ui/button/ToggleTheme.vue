@@ -1,18 +1,31 @@
 <script setup>
-const theme = defineModel({ default: 'dark' })
+/**
+ * first it`s use parent .dark class to set theme mode by using css
+ * after that can modify by `theme` model
+ * and it have a `onToggled` emit
+ */
+
+const theme = defineModel({ default: '' })
+const emit = defineEmits(['onToggled'])
 
 const toggleTheme = () => {
   theme.value = theme.value == 'dark' ? 'light' : 'dark'
+  emit('onToggled', theme.value)
 }
 
-const shapeThemeClass = computed(() => {
-  return theme.value == 'dark' ? 'moon' : 'sun'
+const shapeClass = computed(() => {
+  switch (theme.value) {
+    case 'dark':
+      return 'moon'
+    case 'light':
+      return 'sun'
+  }
 })
 </script>
 
 <template>
   <button @click="toggleTheme" class="theme-toggle--button" aria-label="Toggle Theme">
-    <span :class="shapeThemeClass" class="shape"></span>
+    <span :class="shapeClass" class="shape"></span>
     <span class="rays--container">
       <span class="ray"></span>
       <span class="ray"></span>
@@ -78,27 +91,34 @@ const shapeThemeClass = computed(() => {
   border: 2px solid #fff;
   transition: all 500ms;
 }
-.theme-toggle--button .shape.moon {
-  width: 1.667em;
-  height: 1.667em;
-  box-shadow: inset -0.5em -0.5em var(--color);
-}
-.theme-toggle--button .shape.moon ~ .rays--container .ray {
-  width: 0;
-  height: 0;
-}
+
+:not(.dark) .theme-toggle--button .shape,
 .theme-toggle--button .shape.sun {
   width: 1em;
   height: 1em;
   box-shadow: inset -0.7em -0.7em var(--color);
 }
+:not(.dark) .theme-toggle--button .shape ~ .rays--container,
 .theme-toggle--button .shape.sun ~ .rays--container {
   transform: rotate(90deg);
   transition: transform 750ms 400ms;
 }
+:not(.dark) .theme-toggle--button .shape ~ .rays--container .ray,
 .theme-toggle--button .shape.sun ~ .rays--container .ray {
   width: 0.334em;
   height: 1.667em;
   background-color: var(--color);
+}
+
+.dark .theme-toggle--button .shape:not(.sun),
+.theme-toggle--button .shape.moon {
+  width: 1.667em;
+  height: 1.667em;
+  box-shadow: inset -0.5em -0.5em var(--color);
+}
+.dark .theme-toggle--button .shape:not(.sun) ~ .rays--container .ray,
+.theme-toggle--button .shape.moon ~ .rays--container .ray {
+  width: 0;
+  height: 0;
 }
 </style>
