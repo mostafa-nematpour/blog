@@ -17,10 +17,17 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
   --c-bg-light-1: #ffffff;
-  --c-bg-dark-1: #000000;
+  --c-bg-dark-1: #0d1117;
+
+  --c-bg-header-dark: #0d111787;
+  --c-bg-header-light: #ffffff87;
 
   --c-text-light-1: #000000;
+  --c-text-light-2: #656d75;
+  --c-text-light-3: #1f2667;
   --c-text-dark-1: #ffffff;
+  --c-text-dark-2: #848d97;
+  --c-text-dark-3: #647eff;
 
   --site-text-color-2: '#ea0303';
   /* --site-text-color-2: '#656d75'; */
@@ -49,7 +56,10 @@
 /* semantic color variables for this project */
 :root {
   --color-background: var(--c-bg-light-1);
+  --color-header-background: var(--c-bg-header-light);
   --color-text: var(--c-text-light-1);
+  --color-text-soft: var(--c-text-light-2);
+  --color-text-3: var(--c-text-light-3);
 
   /*  */
   --color-background-soft: var(--vt-c-white-soft);
@@ -65,7 +75,11 @@
 
 html.dark {
   --color-background: var(--c-bg-dark-1);
+  --color-header-background: var(--c-bg-header-dark);
   --color-text: var(--c-text-dark-1);
+  --color-text-soft: var(--c-text-dark-2);
+  --color-text-3: var(--c-text-dark-3);
+
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -75,15 +89,17 @@ html.dark {
   }
 } */
 
-
-/* :root .dark {
-  color-scheme: dark;
+div,
+header,
+section,
+main,
+footer,
+article {
+  -webkit-transition: background-color 200ms ease-out;
+  -moz-transition: background-color 200ms ease-out;
+  -o-transition: background-color 200ms ease-out;
+  transition: background-color 200ms ease-out;
 }
-
-:root .light {
-  color-scheme: light;
-} */
-
 
 @font-face {
   font-family: vazirmatn-rd;

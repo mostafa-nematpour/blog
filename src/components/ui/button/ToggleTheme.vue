@@ -39,7 +39,7 @@ const shapeClass = computed(() => {
 .theme-toggle--button {
   --button-diameter: 40px;
   --shape-size: 15px;
-  --color: #353175;
+  --color: var(--color-text);
   border: none;
   outline: none;
   display: flex;
@@ -47,17 +47,12 @@ const shapeClass = computed(() => {
   border-radius: 50%;
   position: relative;
   align-items: center;
-  background-color: #fff;
   justify-content: center;
-  transition: box-shadow 500ms;
   font-size: var(--shape-size);
   width: var(--button-diameter);
   height: var(--button-diameter);
-  box-shadow: 4px 4px 15px rgba(53, 49, 117, 0.2);
 }
-.dark ~ .theme-toggle--button {
-  box-shadow: 4px 4px 15px rgb(29 27 58);
-}
+
 .theme-toggle--button span {
   display: inline-block;
 }
@@ -87,9 +82,12 @@ const shapeClass = computed(() => {
   z-index: 1;
   position: absolute;
   border-radius: 50%;
-  background: #fff;
+  /* background: #fff;*/
   border: 2px solid #fff;
   transition: all 500ms;
+}
+.dark .theme-toggle--button .shape {
+  border: 2px solid #ffffff00;
 }
 
 :not(.dark) .theme-toggle--button .shape,

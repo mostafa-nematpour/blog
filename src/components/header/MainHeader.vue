@@ -10,13 +10,20 @@ onMounted(() => {
   toggleTheme = toggle
   siteTheme = theme
 })
-
 </script>
 
 <template>
-  <div>
-    <ToggleTheme @on-toggled="toggleTheme()" v-model="siteTheme"></ToggleTheme>
-  </div>
+  <header class="backdrop-blur-md bg-c-header-bg flex">
+    <div class="flex text-c-text font-sahel h-[56px] w-full mx-auto max-w-[800px]">
+      <div class="flex-1"></div>
+      <div class="flex-[3] flex items-center justify-center text-5xl">
+        <h1 class="text-center font-medium text-3xl text-c-text-3">نوشته‌ها</h1>
+      </div>
+      <div class="flex-1 flex items-center justify-end">
+        <ToggleTheme class="me-3" @on-toggled="toggleTheme()" v-model="siteTheme"></ToggleTheme>
+      </div>
+    </div>
+  </header>
 </template>
 
 <style scoped></style>
