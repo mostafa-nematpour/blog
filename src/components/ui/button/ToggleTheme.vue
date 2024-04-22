@@ -82,8 +82,7 @@ const shapeClass = computed(() => {
   z-index: 1;
   position: absolute;
   border-radius: 50%;
-  /* background: #fff;*/
-  border: 2px solid #fff;
+  border: 2px solid #f1f1f1;
   transition: all 500ms;
 }
 .dark .theme-toggle--button .shape {

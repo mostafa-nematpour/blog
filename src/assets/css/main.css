@@ -47,17 +47,26 @@
 }
 
 .blog-content a {
-  color: #0000ff;
+  color: var(--md-link-color, #4285f4);
 }
 
 .blog-content code {
-  background-color: #e0e0e0;
+  background-color: var(--md-code-background, #e2e3e7);
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-bottom: 2px;
   border-radius: 4px;
+}
+
+pre code {
+  padding-left: unset !important;
+  padding-right: unset !important;
+  background-color: unset !important;
 }
 
 .blog-content pre {
   direction: ltr;
-  background-color: #e0e0e0;
+  background-color: var(--md-code-background, #e2e3e7);
   padding-left: 0.6rem;
   padding-right: 0.6rem;
   padding-top: 0.8rem;

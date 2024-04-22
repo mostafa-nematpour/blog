@@ -3,8 +3,8 @@ import MainHeader from '~/components/header/MainHeader.vue'
 </script>
 
 <template>
-  <div class="fixed left-0 right-0 top-[-1px] z-50 fixed-header">
-    <MainHeader></MainHeader>
+  <div class="fixed left-0 right-0 top-[-1px] z-[500] fixed-header">
+    <MainHeader class="bg-c-header-bg"><slot></slot></MainHeader>
   </div>
 </template>
 

@@ -50,9 +50,6 @@ function initCanvas() {
 
         const { innerWidth, innerHeight, devicePixelRatio } = window
 
-        // const width = 512
-        // const height = 192 // innerHeight
-
         const width = canvasContainer.value.clientWidth
         const height = canvasContainer.value.clientHeight
         baseFontSize = canvasContainer.value.clientWidth / 6
@@ -68,7 +65,6 @@ function initCanvas() {
 
     window.addEventListener('resize', updateCanvasSize)
     updateCanvasSize()
-
 
     /**
      * Context
@@ -89,14 +85,28 @@ function initCanvas() {
     $splitCanvas.height = $canvas.height
 
     // Draw Text
-    const drawText = (context, text, font, color) => {
-        context.fillStyle = color
-        context.font = font
-        context.textBaseline = 'middle'
-        context.textAlign = 'center'
+    // const drawText = (context, text, font, color) => {
+    //     context.fillStyle = color
+    //     context.font = font
+    //     context.textBaseline = 'middle'
+    //     context.textAlign = 'center'
 
-        context.fillText(text, context.canvas.width / 2, context.canvas.height / 9 * 5)
-    }
+    //     context.fillText(text, context.canvas.width / 2, context.canvas.height / 9 * 5)
+    // }
+
+    const drawText = (context, text, font, color, yPosition) => {
+    context.fillStyle = color;
+    context.font = font;
+    context.textBaseline = 'middle';
+    context.textAlign = 'center';
+
+    const lines = text.split('\n');
+    const lineHeight = context.measureText('M').width * 1.2; // Adjust line height as needed
+
+    lines.forEach((line, index) => {
+        context.fillText(line.trim(), context.canvas.width / 2, context.canvas.height / 2 + (index * lineHeight));
+    });
+};
 
     // Offset
     const offset = { x1: 0, y1: 0, x2: 0, y2: 0 }
@@ -136,7 +146,6 @@ function initCanvas() {
 
         context.drawImage(splitContext.canvas, offset.x1, offset.y1)
         context.drawImage(splitContext.canvas, offset.x1, offset.y1)
-
         context.drawImage(splitContext.canvas, offset.x2, offset.y2)
         context.drawImage(splitContext.canvas, offset.x2, offset.y2)
 
@@ -165,7 +174,6 @@ function initCanvas() {
         splitContext.fillRect(0, 0, context.canvas.width / randomInt(2, 10), context.canvas.height / 1)
 
         context.drawImage(splitContext.canvas, 0, 0, spliceWidth, spliceHeight, x, y, spliceWidth, spliceHeight)
-
 
         splitContext.globalCompositeOperation = 'source-over'
     }

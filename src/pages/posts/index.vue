@@ -10,7 +10,9 @@ const blogs = computed(() => {
 </script>
 
 <template>
-  <FixedHeader></FixedHeader>
+  <FixedHeader>
+    <h1 class="text-center font-medium text-3xl text-c-text-3">نوشته‌ها</h1>
+  </FixedHeader>
   <div dir="rtl" class="container max-w-[580px] w-full mx-auto pt-[56px]">
     <template v-for="blogItem in blogs" :key="blogItem.id">
       <BlogItem :blog="blogItem" />

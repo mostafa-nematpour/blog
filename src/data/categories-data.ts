@@ -9,7 +9,7 @@ const categories: Category[] = [
   {
     id: 2,
     title: 'برنامه نویسی',
-    color: ['#0f172a', '#717cdd']
+    color: ['#4285f4', '#717cdd']
   },
   {
     id: 3,

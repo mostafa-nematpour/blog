@@ -13,11 +13,13 @@ onMounted(() => {
 </script>
 
 <template>
-  <header class="backdrop-blur-md bg-c-header-bg flex">
+  <header class="backdrop-blur-md flex">
     <div class="flex text-c-text font-sahel h-[56px] w-full mx-auto max-w-[800px]">
-      <div class="flex-1"></div>
+      <div class="flex-1">
+        <slot name="options"></slot>
+      </div>
       <div class="flex-[3] flex items-center justify-center text-5xl">
-        <h1 class="text-center font-medium text-3xl text-c-text-3">نوشته‌ها</h1>
+        <slot></slot>
       </div>
       <div class="flex-1 flex items-center justify-end">
         <ToggleTheme class="me-3" @on-toggled="toggleTheme()" v-model="siteTheme"></ToggleTheme>

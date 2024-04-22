@@ -20,6 +20,7 @@ export default {
         'c-text': 'var(--color-text)',
         'c-text-soft': 'var(--color-text-soft)',
         'c-text-3': 'var(--color-text-3)',
+        'c-text-title': 'var(--color-text-title)',
 
         'text-color-2': 'var(--text-color-2)',
         'bg-color-2': 'var(--bg-color-2)',

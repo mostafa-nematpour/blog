@@ -17,17 +17,21 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
   --c-bg-light-1: #ffffff;
-  --c-bg-dark-1: #0d1117;
+  --c-bg-light-2: #f1f1f5;
+  --c-bg-dark-1: #1a1a1a;
+  --c-bg-dark-2: rgb(56, 56, 56);
 
-  --c-bg-header-dark: #0d111787;
-  --c-bg-header-light: #ffffff87;
+  --c-bg-header-dark: rgba(35, 35, 38, 0.4);
+  --c-bg-header-light: #ffffffba;
 
-  --c-text-light-1: #000000;
+  --c-text-light-1: rgb(51, 52, 53);
   --c-text-light-2: #656d75;
   --c-text-light-3: #1f2667;
-  --c-text-dark-1: #ffffff;
+  --c-text-light-4: #000000;
+  --c-text-dark-1: rgb(229, 231, 235);
   --c-text-dark-2: #848d97;
-  --c-text-dark-3: #647eff;
+  --c-text-dark-3: #f6f8fa;
+  --c-text-dark-4: #ffffff;
 
   --site-text-color-2: '#ea0303';
   /* --site-text-color-2: '#656d75'; */
@@ -56,10 +60,17 @@
 /* semantic color variables for this project */
 :root {
   --color-background: var(--c-bg-light-1);
+  --color-background-soft: var(--c-bg-light-2);
   --color-header-background: var(--c-bg-header-light);
   --color-text: var(--c-text-light-1);
   --color-text-soft: var(--c-text-light-2);
   --color-text-3: var(--c-text-light-3);
+  --color-text-title: var(--c-text-light-4);
+
+
+  --md-link-color: #0000ff;
+  --md-code-background: var(--c-bg-light-2);
+
 
   /*  */
   --color-background-soft: var(--vt-c-white-soft);
@@ -75,10 +86,18 @@
 
 html.dark {
   --color-background: var(--c-bg-dark-1);
+  --color-background-soft: var(--c-bg-dark-2);
   --color-header-background: var(--c-bg-header-dark);
   --color-text: var(--c-text-dark-1);
   --color-text-soft: var(--c-text-dark-2);
   --color-text-3: var(--c-text-dark-3);
+  --color-text-title: var(--c-text-dark-4);
+
+
+  --md-link-color: #4285f4;
+  --md-code-background: var(--c-bg-dark-2);
+
+
 
 }
 
@@ -90,6 +109,8 @@ html.dark {
 } */
 
 div,
+code,
+pre,
 header,
 section,
 main,

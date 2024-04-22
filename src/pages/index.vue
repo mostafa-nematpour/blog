@@ -16,7 +16,7 @@ const bodyClick = () => {
 onMounted(() => {
     showLinksTimeout = setTimeout(() => {
         showLinks.value = true
-    }, 15000)
+    }, 10000)
 })
 
 onUnmounted(() => {

@@ -1,7 +1,9 @@
 const introSentences = [
-  { word: '', fontScale: 1.4, time: 1000 },
-  { word: 'سلام', fontScale: 1.2, time: 2000 },
-  { word: 'من مصطفی‌ام', fontScale: 1, time: 2500 },
+  // { word: 'در کادر زیر هر متن\nی را که دوست دارید تایپ کنید', fontScale: 0.2, time: 10000 },
+  // { word: '<br> سمنپلبسکنپلسکنپر <br> \nدر کادر زیر هر متنی را که دوست دارید تایپ کنید', fontScale: 0.2, time: 10000 },
+  { word: '', fontScale: 1.4, time: 100 },
+  { word: 'سلام', fontScale: 1.2, time: 1500 },
+  { word: 'من مصطفی‌ام', fontScale: 1, time: 2000 },
   { word: '', fontScale: 1, time: 500 },
   { word: 'برنامه نویس وب', fontScale: 0.9, time: 2500 },
   { word: '', fontScale: 1, time: 500 },

@@ -11,7 +11,7 @@ const blogLink = (id: Number, slug: String) => {
     <RouterLink
       :to="blogLink(blog.id, blog.slug)"
       :title="blog.title"
-      class="overflow-hidden block w-full rounded-[6px] mb-4"
+      class="overflow-hidden block w-full rounded-[6px] mb-3"
     >
       <img
         class="w-full h-auto ease-out aspect-[16/9] flex justify-center text-black object-cover duration-300 group-hover/item:scale-[103%]"
@@ -19,7 +19,7 @@ const blogLink = (id: Number, slug: String) => {
         alt=""
       />
     </RouterLink>
-    <div class="mb-2 flex gap-3">
+    <div class="mb-3 flex gap-3">
       <RouterLink
         to=""
         v-for="categoryItem in blog.categories"
@@ -35,7 +35,7 @@ const blogLink = (id: Number, slug: String) => {
     <RouterLink
       :to="blogLink(blog.id, blog.slug)"
       :title="blog.title"
-      class="mb-3 inline-block text-c-text"
+      class="mb-3 inline-block text-c-text-title"
     >
       <h2 class="text-xl font-bold">{{ blog.title }}</h2>
     </RouterLink>
