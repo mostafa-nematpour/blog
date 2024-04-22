@@ -3,7 +3,7 @@ import { useBlogStore } from '@/stores/blog'
 import type { Post } from '@/types/post'
 import { computed, onMounted, ref, type Ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import MainHeader from '~/components/header/MainHeader.vue';
+import MainHeader from '~/components/header/MainHeader.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -47,6 +47,15 @@ onMounted(() => {
   if (!blog.value) {
     router.push('/404')
   }
+
+  useSeoMeta({
+    title: blog.value?.title,
+    ogTitle: blog.value?.title,
+    description: blog.value?.description,
+    ogDescription: blog.value?.description,
+    ogImage: blog.value?.imageURL,
+    twitterCard: 'summary_large_image'
+  })
 })
 </script>
 

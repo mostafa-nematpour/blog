@@ -7,6 +7,14 @@ const store = useBlogStore()
 const blogs = computed(() => {
   return store.blogsData
 })
+useSeoMeta({
+  title: "نوشته‌ها",
+  ogTitle:"نوشته‌ها",
+  // description: blog.value?.description,
+  // ogDescription: blog.value?.description,
+  // ogImage: blog.value?.imageURL
+  // twitterCard: 'summary_large_image'
+})
 </script>
 
 <template>
