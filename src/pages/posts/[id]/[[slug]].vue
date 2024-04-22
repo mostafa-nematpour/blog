@@ -47,15 +47,15 @@ onMounted(() => {
   if (!blog.value) {
     router.push('/404')
   }
+})
 
-  useSeoMeta({
-    title: blog.value?.title,
-    ogTitle: blog.value?.title,
-    description: blog.value?.description,
-    ogDescription: blog.value?.description,
-    ogImage: blog.value?.imageURL,
-    twitterCard: 'summary_large_image'
-  })
+useSeoMeta({
+  title: blog.value?.title,
+  ogTitle: blog.value?.title,
+  description: blog.value?.description,
+  ogDescription: blog.value?.description,
+  ogImage: blog.value?.imageURL,
+  twitterCard: 'summary_large_image'
 })
 </script>
 
