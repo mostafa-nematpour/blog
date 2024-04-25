@@ -55,12 +55,15 @@
   padding-left: 4px;
   padding-right: 4px;
   padding-bottom: 2px;
+  padding-top: 2px;
   border-radius: 4px;
 }
 
 pre code {
   padding-left: unset !important;
   padding-right: unset !important;
+  padding-bottom: unset !important;
+  padding-top: unset !important;
   background-color: unset !important;
 }
 
