@@ -20,6 +20,11 @@ const categories: Category[] = [
     id: 4,
     title: 'cloudflare',
     color: ['#f6821f', '#fbad41']
+  },
+  {
+    id: 5,
+    title: 'لینوکس',
+    color: ['#19B600', '#25B26A']
   }
 ]
 
