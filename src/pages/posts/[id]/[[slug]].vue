@@ -4,6 +4,7 @@ import type { Post } from '@/types/post'
 import { computed, onMounted, ref, type Ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import MainHeader from '~/components/header/MainHeader.vue'
+import CommentBox from '~/components/blog/CommentBox.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -109,6 +110,12 @@ useSeoMeta({
         {{ toPersianString(`${daysBetween}`) }}
         روز پیش
       </time>
+    </div>
+    <div>
+      <CommentBox
+        :postId="blog?.id"
+        class="mx-auto container max-w-[760px] py-3 px-2 flex justify-end text-sm font-extrabold text-text-color-2"
+      />
     </div>
   </div>
 </template>

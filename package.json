@@ -11,6 +11,7 @@
     "start": "node .output/server/index.mjs"
   },
   "dependencies": {
+    "@nuxtjs/turnstile": "^0.8.0",
     "@pinia/nuxt": "^0.5.1",
     "nuxt": "^3.11.1",
     "pinia": "^2.1.7",

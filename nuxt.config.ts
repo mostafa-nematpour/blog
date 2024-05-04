@@ -1,9 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@pinia/nuxt', '@nuxtjs/tailwindcss'],
+  modules: ['@pinia/nuxt', '@nuxtjs/tailwindcss', '@nuxtjs/turnstile'],
   pinia: {
     storesDirs: ['./stores/**', './custom-folder/stores/**']
+  },
+  turnstile: {
+    siteKey: '0x4AAAAAAAZR15ZEAnMLtfA1'
   },
   css: ['~/assets/css/main.css'],
   srcDir: 'src/',
