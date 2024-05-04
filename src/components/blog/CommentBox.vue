@@ -30,7 +30,8 @@ function onSubmit() {
         name: name.value,
         content: content.value,
         email: email.value,
-        postId: props.postId
+        postId: props.postId,
+        'cf-turnstile-response': token.value
       })
     })
       .then((res) => res.json())
