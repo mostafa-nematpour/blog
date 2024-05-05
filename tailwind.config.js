@@ -16,6 +16,7 @@ export default {
     extend: {
       colors: {
         'c-bg': 'var(--color-background)',
+        'c-bg-soft': 'var(--color-background-soft)',
         'c-header-bg': 'var(--color-header-background)',
         'c-text': 'var(--color-text)',
         'c-text-soft': 'var(--color-text-soft)',

@@ -67,13 +67,11 @@
   --color-text-3: var(--c-text-light-3);
   --color-text-title: var(--c-text-light-4);
 
-
-  --md-link-color: #0000ff;
+  --md-link-color: #2525c7;
   --md-code-background: var(--c-bg-light-2);
 
-
   /*  */
-  --color-background-soft: var(--vt-c-white-soft);
+  /* --color-background-soft: var(--vt-c-white-soft); */
   --color-background-mute: var(--vt-c-white-mute);
 
   --color-border: var(--vt-c-divider-light-2);
@@ -93,12 +91,8 @@ html.dark {
   --color-text-3: var(--c-text-dark-3);
   --color-text-title: var(--c-text-dark-4);
 
-
   --md-link-color: #4285f4;
   --md-code-background: var(--c-bg-dark-2);
-
-
-
 }
 
 /* @media (prefers-color-scheme: dark) {

@@ -64,7 +64,7 @@ useSeoMeta({
   <MainHeader>
     <template v-slot:options></template>
   </MainHeader>
-  <div v-if="blog" dir="rtl" class="relative font-sahel">
+  <div v-if="blog" dir="rtl" class="relative font-sahel post-page">
     <div class="bg-c-bg z-50 container max-w-[760px] pb-6 sm:px-6 px-3 pt-1 w-full mx-auto">
       <h1 class="mb-4 text-c-text-3 text-4xl leading-normal font-extrabold relative z-[51]">
         {{ blog?.title }}
@@ -114,7 +114,7 @@ useSeoMeta({
     <div>
       <CommentBox
         :postId="blog?.id"
-        class="mx-auto container max-w-[760px] py-3 px-2 flex justify-end text-sm font-extrabold text-text-color-2"
+        class="mx-auto container max-w-[760px] py-3 sm:px-6 px-3 flex justify-end text-sm font-extrabold text-text-color-2"
       />
     </div>
   </div>
@@ -127,4 +127,7 @@ useSeoMeta({
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+
+
 </style>
