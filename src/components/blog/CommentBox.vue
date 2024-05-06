@@ -25,7 +25,7 @@ function onSubmit() {
       'Content-Type': 'application/json'
     }
 
-    await fetch('http://grogu.liara.run/comment', {
+    await fetch('https://grogu.liara.run/comment', {
       method: 'POST',
       redirect: 'follow',
       referrerPolicy: 'no-referrer',
