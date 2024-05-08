@@ -14,6 +14,8 @@ const error = ref('')
 const data = ref('')
 const loading = ref(false)
 
+const emit = defineEmits(['added'])
+
 let siteTheme = ref<'dark' | 'light' | 'auto'>('auto')
 onMounted(() => {
   const { theme } = useAppearance()
@@ -49,10 +51,10 @@ function onSubmit() {
       .then((json) => {
         data.value = json
         loading.value = false
+        emit('added')
       })
       .catch((err) => {
         loading.value = false
-
         error.value = err
       })
   })

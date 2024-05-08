@@ -45,6 +45,11 @@ const toPersianString = (str: string): string => {
   return output
 }
 
+const comments = ref<InstanceType<typeof CommentList> | null>(null)
+const refreshCommentList = () => {
+  comments.value?.refreshCommentList()
+}
+
 onMounted(() => {
   if (!blog.value) {
     router.push('/404')
@@ -95,9 +100,9 @@ useSeoMeta({
       </time>
     </div>
     <div>
-      <CommentForm :postId="blog?.id"
+      <CommentForm :postId="blog?.id" @added="refreshCommentList"
         class="mx-auto container max-w-[760px] py-3 sm:px-6 px-3 flex justify-end text-sm font-extrabold" />
-      <CommentList :postId="blog?.id"
+      <CommentList :postId="blog?.id" ref="comments"
         class="mx-auto container max-w-[760px] py-3 sm:px-6 px-3 justify-end text-sm font-extrabold text-text-color-2" />
     </div>
   </div>
