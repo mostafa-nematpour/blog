@@ -4,7 +4,8 @@ import type { Post } from '@/types/post'
 import { computed, onMounted, ref, type Ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import MainHeader from '~/components/header/MainHeader.vue'
-import CommentBox from '~/components/blog/CommentBox.vue'
+import CommentForm from '~/components/blog/CommentForm.vue'
+import CommentList from '~/components/blog/CommentList.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -70,41 +71,23 @@ useSeoMeta({
         {{ blog?.title }}
       </h1>
       <div class="z-50 relative rounded-[16px] overflow-hidden">
-        <img
-          class="w-full blog-main-image h-auto aspect-[16/9] flex justify-center text-white object-cover"
-          :src="blog.imageURL"
-          :alt="blog.imageAlt"
-        />
+        <img class="w-full blog-main-image h-auto aspect-[16/9] flex justify-center text-white object-cover"
+          :src="blog.imageURL" :alt="blog.imageAlt" />
       </div>
-
       <div class="mt-4 p-2">
         <div class="mb-3 flex gap-3">
-          <RouterLink
-            to=""
-            v-for="categoryItem in blog?.categories"
-            :key="categoryItem.id"
-            :style="{
-              background: `-webkit-linear-gradient(315deg, ${categoryItem.color[0]} 25%, ${categoryItem.color[1]})`
-            }"
-            class="font-semibold text-sm category"
-          >
+          <RouterLink to="" v-for="categoryItem in blog?.categories" :key="categoryItem.id" :style="{
+    background: `-webkit-linear-gradient(315deg, ${categoryItem.color[0]} 25%, ${categoryItem.color[1]})`
+  }" class="font-semibold text-sm category">
             {{ categoryItem.title }}
           </RouterLink>
         </div>
 
-        <div
-          class="blog-content text-base font-sahel font-normal text-c-text"
-          v-html="blog?.body"
-        ></div>
+        <div class="blog-content text-base font-sahel font-normal text-c-text" v-html="blog?.body"></div>
       </div>
-      <!-- <div
-        class="absolute top-0 right-0 left-0 w-full max-h-[240px] h-auto aspect-[16/5]"
-        :style="{ background: `${blog?.blogColor}` }"
-      ></div> -->
     </div>
     <div
-      class="mx-auto container max-w-[760px] py-3 px-2 flex justify-end text-sm font-extrabold text-text-color-2"
-    >
+      class="mx-auto container max-w-[760px] py-3 sm:px-6 px-3  flex justify-end text-sm font-extrabold text-text-color-2">
       <time :datetime="date">
         منتشر شده در
         {{ toPersianString(`${daysBetween}`) }}
@@ -112,10 +95,10 @@ useSeoMeta({
       </time>
     </div>
     <div>
-      <CommentBox
-        :postId="blog?.id"
-        class="mx-auto container max-w-[760px] py-3 sm:px-6 px-3 flex justify-end text-sm font-extrabold text-text-color-2"
-      />
+      <CommentForm :postId="blog?.id"
+        class="mx-auto container max-w-[760px] py-3 sm:px-6 px-3 flex justify-end text-sm font-extrabold" />
+      <CommentList :postId="blog?.id"
+        class="mx-auto container max-w-[760px] py-3 sm:px-6 px-3 justify-end text-sm font-extrabold text-text-color-2" />
     </div>
   </div>
 </template>
@@ -127,7 +110,4 @@ useSeoMeta({
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-
-
 </style>
