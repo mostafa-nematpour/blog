@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import GlitchButton from '~/components/ui/button/GlitchButton.vue'
+import { useAppearance } from '~/composables/theme'
+
 const props = defineProps(['postId'])
 
 const name = ref(null)
@@ -12,7 +14,11 @@ const error = ref('')
 const data = ref('')
 const loading = ref(false)
 
-
+let siteTheme = ref<'dark' | 'light' | 'auto'>('auto')
+onMounted(() => {
+  const { theme } = useAppearance()
+  siteTheme = theme
+})
 
 function onSubmit() {
   loading.value = true
@@ -82,11 +88,13 @@ function validateForm(next: Function) {
             v-model="content"></textarea>
         </div>
 
-        <div class="min-h-[65px] mt-5">
-          <NuxtTurnstile v-model="token" />
+        <div class="turnstile-box relative min-h-[65px] mt-5 sm:mx-[unset] mx-auto">
+          <span class="absolute top-1/2 right-1/2 translate-x-1/2 translate-y-[-50%] text-xl text-c-text-soft z-[1]">
+            صبر کنید ...
+          </span>
+          <NuxtTurnstile :options="{ theme: siteTheme }" class="turnstile-wrapper relative z-10" v-model="token" />
         </div>
-        <br />
-        <GlitchButton @btn-click="onSubmit()" title="ارسال" :loading :disable="loading" />
+        <GlitchButton @btn-click="onSubmit()" title="ارسال" :loading :disable="loading" class="sm:w-40 w-full mt-8" />
       </form>
     </div>
   </div>
@@ -114,4 +122,19 @@ input:focus,
 textarea:focus {
   border: 2px solid var(--md-link-color, #4285f4);
 }
+
+.turnstile-box {
+  width: 300px;
+  height: 65px;
+  background-color: var(--color-background-soft);
+  border-radius: 5px;
+  overflow: hidden !important;
+  border: 1px solid #e0e0e0 !important;
+}
+
+.dark .turnstile-box {
+  border: 1px solid var(--color-text-soft) !important;
+}
 </style>
+
+<style></style>

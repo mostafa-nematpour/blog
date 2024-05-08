@@ -7,7 +7,7 @@ export function useAppearance() {
   const classList = document.documentElement.classList
   const setClass = (dark: boolean) => classList[dark ? 'add' : 'remove']('dark')
 
-  const theme = ref<null | string>(null)
+  const theme = ref<'dark' | 'light' | 'auto'>('auto')
 
   query.onchange = (e) => {
     if (userPreference === 'auto') {
@@ -15,7 +15,7 @@ export function useAppearance() {
     }
   }
 
-  const toggle = () => { 
+  const toggle = () => {
     setClass((isDark.value = !isDark.value))
     localStorage.setItem(
       storageKey,
