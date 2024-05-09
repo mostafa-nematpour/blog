@@ -71,13 +71,13 @@ useSeoMeta({
     <template v-slot:options></template>
   </MainHeader>
   <div v-if="blog" dir="rtl" class="relative font-sahel post-page">
-    <div class="bg-c-bg z-50 container max-w-[760px] pb-6 sm:px-6 px-3 pt-1 w-full mx-auto">
+    <div class="bg-c-bg z-50 container max-w-[47.5rem] pb-6 sm:px-6 px-3 pt-1 w-full mx-auto">
       <h1 class="mb-4 text-c-text-3 text-4xl leading-normal font-extrabold relative z-[51]">
         {{ blog?.title }}
       </h1>
-      <div class="z-50 relative rounded-[16px] overflow-hidden">
+      <div v-if="blog?.imageURL" class="z-50 relative rounded-[16px] overflow-hidden">
         <img class="w-full blog-main-image h-auto aspect-[16/9] flex justify-center text-white object-cover"
-          :src="blog.imageURL" :alt="blog.imageAlt" />
+          :src="blog.imageURL" :alt="blog?.imageAlt ?? ''" />
       </div>
       <div class="mt-4 p-2">
         <div class="mb-3 flex gap-3">
@@ -92,7 +92,7 @@ useSeoMeta({
       </div>
     </div>
     <div
-      class="mx-auto container max-w-[760px] py-3 sm:px-6 px-3  flex justify-end text-sm font-extrabold text-text-color-2">
+      class="mx-auto container max-w-[47.5rem] py-3 sm:px-6 px-3  flex justify-end text-sm font-extrabold text-text-color-2">
       <time :datetime="date">
         منتشر شده در
         {{ toPersianString(`${daysBetween}`) }}
@@ -101,9 +101,9 @@ useSeoMeta({
     </div>
     <div>
       <CommentForm :postId="blog?.id" @added="refreshCommentList"
-        class="mx-auto container max-w-[760px] py-3 sm:px-6 px-3 flex justify-end text-sm font-extrabold" />
+        class="mx-auto container max-w-[47.5rem] py-3 sm:px-6 px-3 flex justify-end text-sm font-extrabold" />
       <CommentList :postId="blog?.id" ref="comments"
-        class="mx-auto container max-w-[760px] py-3 sm:px-6 px-3 justify-end text-sm font-extrabold text-text-color-2" />
+        class="mx-auto container max-w-[47.5rem] py-3 sm:px-6 px-3 justify-end text-sm font-extrabold text-text-color-2" />
     </div>
   </div>
 </template>

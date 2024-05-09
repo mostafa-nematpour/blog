@@ -25,7 +25,17 @@ const categories: Category[] = [
     id: 5,
     title: 'لینوکس',
     color: ['#19B600', '#25B26A']
-  }
+  },
+  {
+    id: 50,
+    title: 'مهدی اخوان ثالث',
+    color: ['#de73e0', '#de73e0']
+  },
+  {
+    id: 70,
+    title: 'شعر',
+    color: ['#55acee', '#1877f2']
+  },
 ]
 
 export { categories }

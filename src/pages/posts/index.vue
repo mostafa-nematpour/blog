@@ -9,7 +9,7 @@ const blogs = computed(() => {
 })
 useSeoMeta({
   title: "نوشته‌ها",
-  ogTitle:"نوشته‌ها",
+  ogTitle: "نوشته‌ها",
   // description: blog.value?.description,
   // ogDescription: blog.value?.description,
   // ogImage: blog.value?.imageURL
@@ -21,7 +21,7 @@ useSeoMeta({
   <FixedHeader>
     <h1 class="text-center font-medium text-3xl text-c-text-3">نوشته‌ها</h1>
   </FixedHeader>
-  <div dir="rtl" class="container max-w-[580px] w-full mx-auto pt-[56px]">
+  <div dir="rtl" class="container max-w-[36.25rem] w-full mx-auto pt-[56px]">
     <template v-for="blogItem in blogs" :key="blogItem.id">
       <BlogItem :blog="blogItem" />
     </template>
