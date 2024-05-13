@@ -36,7 +36,6 @@ defineExpose({ refreshCommentList })
     </div>
     <template v-else-if="data">
       <template v-if="data.length > 0">
-
         <div>لیست نظرات</div>
         <br>
         <ul>

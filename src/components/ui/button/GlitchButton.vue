@@ -14,13 +14,11 @@ const props = defineProps({
     }
 })
 
-
 </script>
 
 <template>
     <button :disabled="disable" @click="$emit('btnClick')" class="glitch-button"
-        :class="{ loading: loading, disable: disable }">{{
-        title }}</button>
+        :class="{ loading: loading, disable: disable }">{{ title }}</button>
 </template>
 
 <style scoped>
@@ -29,7 +27,7 @@ const props = defineProps({
     font-size: 18px;
     font-weight: 500;
     text-transform: uppercase;
-    padding: 8px 25px;
+    padding: 10px 25px;
     position: relative;
     display: inline-block;
     transition: all 0.2s ease-in-out;
@@ -41,10 +39,12 @@ const props = defineProps({
     background-color: #34a853;
     color: #ffffff;
     outline: none;
+    min-width: 14 rem;
 }
 
 .glitch-button:focus {
-    border: 2px solid var(--md-link-color, #4285f4);
+    border: 2px solid #34a853;
+    box-shadow: #34a853 0px 2px 8px 0px;
 }
 
 .disable {
