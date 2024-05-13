@@ -25,7 +25,7 @@ const backendErrorMassage = ref(null)
 
 let siteTheme = ref<'dark' | 'light' | 'auto'>('auto')
 
-const { isFetching, error, data, execute, onFetchFinally } = useFetch<{ message: string, error: string }>(
+const { isFetching, error, data, execute, onFetchFinally, onFetchResponse } = useFetch<{ message: string, error: string }>(
   'https://grogu.liara.run/comment',
   { headers: { 'Content-Type': 'application/json;charset=UTF-8' } }, { immediate: false, updateDataOnError: true }
 ).post(() => JSON.stringify(
@@ -43,6 +43,7 @@ onFetchFinally((r) => {
     backendErrorMassage.value = data.value.message
     return;
   }
+  emit('added')
 })
 
 onMounted(() => {
