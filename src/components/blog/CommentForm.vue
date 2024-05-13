@@ -10,9 +10,10 @@ const emit = defineEmits(['added'])
 const form = ref({
   name: null,
   email: null,
-  content: null,
-  token: ""
+  content: null
 })
+
+const token = ref("")
 
 const formValidationErrors = ref({
   name: "",
@@ -34,7 +35,7 @@ const { isFetching, error, data, execute, onFetchFinally } = useFetch<{ message:
     content: form.value.content,
     email: form.value.email,
     postId: props.postId,
-    'cf-turnstile-response': form.value.token
+    'cf-turnstile-response': token.value
   }
 )).json()
 
@@ -131,7 +132,7 @@ function warnDisabled() {
           <span class="absolute top-1/2 right-1/2 translate-x-1/2 translate-y-[-50%] text-xl text-c-text-soft z-[1]">
             ...
           </span>
-          <NuxtTurnstile :options="{ theme: siteTheme }" class="turnstile-wrapper relative z-10" v-model="form.token" />
+          <NuxtTurnstile :options="{ theme: siteTheme }" class="turnstile-wrapper relative z-10" v-model="token" />
         </div>
         <GlitchButton @btn-click="onSubmit()" title="ارسال" :loading="isFetching" :disable="isFetching"
           :class="{ shake: btnShake }" class="sm:w-40 w-full mt-8" />
