@@ -39,11 +39,13 @@ const { isFetching, error, data, execute, onFetchFinally, onFetchResponse } = us
 )).json()
 
 onFetchFinally((r) => {
+  console.log(error.value);
+  
+  backendMessage.value = data.value.message
   if (error.value) {
     warnDisabled()
     return;
   }
-  backendMessage.value = data.value.message
   emit('added')
   resetForm()
 })

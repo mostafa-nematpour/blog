@@ -16,7 +16,6 @@ export const toPersianString = (str: string): string => {
     '٧': '۷',
     '٨': '۸',
     '٩': '۹'
-    // Add more mappings here if needed
   }
 
   let output = ''

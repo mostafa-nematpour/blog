@@ -27,6 +27,16 @@ const categories: Category[] = [
     color: ['#19B600', '#25B26A']
   },
   {
+    id: 6,
+    title: 'Gravatar',
+    color: ['#4678eb', '#618df2']
+  },
+  {
+    id: 7,
+    title: 'ترفند های خوب',
+    color: ['#41c364', '#41c364']
+  },
+  {
     id: 50,
     title: 'مهدی اخوان ثالث',
     color: ['#de73e0', '#de73e0']
@@ -35,7 +45,7 @@ const categories: Category[] = [
     id: 70,
     title: 'شعر',
     color: ['#55acee', '#1877f2']
-  },
+  }
 ]
 
 export { categories }
