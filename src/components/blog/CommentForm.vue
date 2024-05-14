@@ -21,8 +21,8 @@ const formValidationErrors = ref({
 })
 
 const btnShake = ref(false)
-const backendErrorMassage = ref(null)
-
+const backendMessage = ref(null)
+const turnstile = ref()
 let siteTheme = ref<'dark' | 'light' | 'auto'>('auto')
 
 const { isFetching, error, data, execute, onFetchFinally, onFetchResponse } = useFetch<{ message: string, error: string }>(
@@ -40,10 +40,12 @@ const { isFetching, error, data, execute, onFetchFinally, onFetchResponse } = us
 
 onFetchFinally((r) => {
   if (error.value) {
-    backendErrorMassage.value = data.value.message
+    warnDisabled()
     return;
   }
+  backendMessage.value = data.value.message
   emit('added')
+  resetForm()
 })
 
 onMounted(() => {
@@ -52,7 +54,7 @@ onMounted(() => {
 })
 
 async function onSubmit() {
-  backendErrorMassage.value = null
+  backendMessage.value = null
   if (!validateForm()) {
     warnDisabled()
     return;
@@ -80,8 +82,8 @@ function validateForm() {
 
   if (isEmptyString(form.value.content)) {
     formValidationErrors.value.content += " - متن پیام نمی‌تواند خالی باشد"
-  } else if (!isStringInRange(form.value.content, 5, 800)) {
-    formValidationErrors.value.content += " - پیام باید بین ۵ تا ۸۰۰ حرف باشد"
+  } else if (!isStringInRange(form.value.content, 3, 800)) {
+    formValidationErrors.value.content += " - پیام باید بین ۳ تا ۸۰۰ حرف باشد"
   }
 
   if (
@@ -100,11 +102,26 @@ function warnDisabled() {
     btnShake.value = false
   }, 1500)
 }
+
+const backendMessageClass = computed(() => ({
+  'text-red-500': error.value
+}))
+
+function resetForm() {
+  turnstile.value?.reset()
+  formValidationErrors.value.name = ""
+  formValidationErrors.value.email = ""
+  formValidationErrors.value.content = ""
+  form.value.name = null
+  form.value.email = null
+  form.value.content = null
+  form.value.token = ""
+}
 </script>
 
 <template>
   <div>
-    <div dir="auto" class="w-full">
+    <div dir="rtl" class="w-full">
       <form @submit.prevent="">
         <div class="flex gap-5 sm:flex-row flex-col">
           <div class="flex-1">
@@ -132,13 +149,14 @@ function warnDisabled() {
           <span class="absolute top-1/2 right-1/2 translate-x-1/2 translate-y-[-50%] text-xl text-c-text-soft z-[1]">
             ...
           </span>
-          <NuxtTurnstile :options="{ theme: siteTheme }" class="turnstile-wrapper relative z-10" v-model="form.token" />
+          <NuxtTurnstile ref="turnstile" :options="{ theme: siteTheme }" class="turnstile-wrapper relative z-10"
+            v-model="form.token" />
         </div>
         <GlitchButton @btn-click="onSubmit()" title="ارسال" :loading="isFetching" :disable="isFetching"
           :class="{ shake: btnShake }" class="sm:w-40 w-full mt-8" />
       </form>
       <br>
-      <span v-if="backendErrorMassage" class="text-red-500 error"> {{ backendErrorMassage }} </span>
+      <span v-if="backendMessage" :class="backendMessageClass" lass="text-green-500"> {{ backendMessage }} </span>
     </div>
   </div>
 </template>

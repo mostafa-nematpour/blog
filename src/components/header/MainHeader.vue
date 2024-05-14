@@ -14,7 +14,7 @@ onMounted(() => {
 
 <template>
   <header class="backdrop-blur-md flex">
-    <div class="flex text-c-text font-sahel h-[56px] w-full mx-auto max-w-[800px]">
+    <div class="flex text-c-text font-sahel h-[56px] w-full mx-auto max-w-[47.5rem]">
       <div class="flex-1">
         <slot name="options"></slot>
       </div>

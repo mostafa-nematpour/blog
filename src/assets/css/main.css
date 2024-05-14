@@ -20,6 +20,12 @@
   padding-left: 14px;
 }
 
+@media (min-width: 768px) {
+  .blog-content p {
+    font-size: 0.875rem;
+  }
+}
+
 .blog-content h2 {
   font-weight: 500;
   font-size: 1.2rem;

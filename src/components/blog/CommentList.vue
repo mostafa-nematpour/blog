@@ -29,14 +29,11 @@ defineExpose({ refreshCommentList })
 </script>
 
 <template>
-  <div class="pb-10 mt-8">
-
-    <div v-if="isFetching">
-      <CommentListLoading />
-    </div>
-    <template v-else-if="data">
+  <div class="pb-10 mt-8 min-h-[148px]">
+    <!-- <span @click="refreshCommentList">refresh</span> -->
+    <template v-if="data">
       <template v-if="data.length > 0">
-        <div>لیست نظرات</div>
+        <div>لیست نظرات <span v-if="isFetching" class="font-normal">درحال دریافت...</span></div>
         <br>
         <ul>
           <li v-for="(item, index) in data" :key="item.id">
@@ -46,13 +43,15 @@ defineExpose({ refreshCommentList })
       </template>
       <CommentListEmpty v-else></CommentListEmpty>
     </template>
-    <div v-else class="flex items-center flex-col">
+    <div v-else-if="isFetching">
+      <CommentListLoading />
+    </div>
+    <div v-if="error" class="flex items-center flex-col">
       <span class="mb-2 text-2xl font-black text-c-text">
         ⚠️ اوه! خطایی روی داده :(
       </span>
       <p class="text-xs">متاسفانه در حال حاضر نمی‌توانیم نظرات را نشان دهیم</p>
     </div>
-
   </div>
 </template>
 

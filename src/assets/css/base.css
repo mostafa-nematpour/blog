@@ -95,20 +95,13 @@ html.dark {
   --md-code-background: var(--c-bg-dark-2);
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--c-bg-dark-1);
-    --color-text: var(--c-text-dark-1);
-  }
-} */
-
 html {
   font-size: 16px;
 }
 
 @media (min-width: 768px) {
   html {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 
