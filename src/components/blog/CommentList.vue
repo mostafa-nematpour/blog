@@ -33,13 +33,14 @@ defineExpose({ refreshCommentList })
     <!-- <span @click="refreshCommentList">refresh</span> -->
     <template v-if="data">
       <template v-if="data.length > 0">
-        <div>لیست نظرات <span v-if="isFetching" class="font-normal">درحال دریافت...</span></div>
+        <div @click="refreshCommentList">لیست نظرات <span v-if="isFetching" class="font-normal">درحال دریافت...</span>
+        </div>
         <br>
-        <ul>
+        <TransitionGroup tag="ul" name="fade" class="container">
           <li v-for="(item, index) in data" :key="item.id">
             <CommentListItem :item="item"></CommentListItem>
           </li>
-        </ul>
+        </TransitionGroup>
       </template>
       <CommentListEmpty v-else></CommentListEmpty>
     </template>
@@ -55,4 +56,30 @@ defineExpose({ refreshCommentList })
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.container {
+  position: relative;
+  padding: 0;
+  list-style-type: none;
+}
+
+/* 1. declare transition */
+.fade-move,
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+/* 2. declare enter from and leave to state */
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: scaleY(0.01) translate(30px, 0);
+}
+
+/* 3. ensure leaving items are taken out of layout flow so that moving
+      animations can be calculated correctly. */
+.fade-leave-active {
+  position: absolute;
+}
+</style>
