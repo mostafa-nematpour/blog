@@ -158,7 +158,7 @@ function resetForm() {
           :class="{ shake: btnShake }" class="sm:w-40 w-full mt-8" />
       </form>
       <br>
-      <span v-if="backendMessage" :class="backendMessageClass" lass="text-green-500"> {{ backendMessage }} </span>
+      <span v-if="backendMessage" :class="backendMessageClass" class="text-green-500"> {{ backendMessage }} </span>
     </div>
   </div>
 </template>
