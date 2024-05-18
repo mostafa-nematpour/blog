@@ -59,7 +59,6 @@ defineExpose({ refreshCommentList })
 <style scoped>
 .container {
   position: relative;
-  padding: 0;
   list-style-type: none;
 }
 
