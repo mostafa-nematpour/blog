@@ -3,7 +3,7 @@ import ToggleTheme from '../ui/button/ToggleTheme.vue'
 import { useAppearance } from '~/composables/theme'
 
 let siteTheme: globalThis.Ref<string | null> | null = null
-let toggleTheme = () => {}
+let toggleTheme = () => { }
 
 onMounted(() => {
   const { theme, isDark, toggle } = useAppearance()
@@ -15,7 +15,7 @@ onMounted(() => {
 <template>
   <header class="backdrop-blur-md flex">
     <div class="flex text-c-text font-sahel h-[56px] w-full mx-auto max-w-[47.5rem]">
-      <div class="flex-1">
+      <div class="flex-1 flex justify-start">
         <slot name="options"></slot>
       </div>
       <div class="flex-[3] flex items-center justify-center text-5xl">

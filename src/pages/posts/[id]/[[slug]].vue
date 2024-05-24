@@ -6,6 +6,7 @@ import { useRoute, useRouter } from 'vue-router'
 import MainHeader from '~/components/header/MainHeader.vue'
 import CommentForm from '~/components/blog/CommentForm.vue'
 import CommentList from '~/components/blog/CommentList.vue'
+import SVGBack from '~/components/ui/svg/SVGBack.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -68,7 +69,12 @@ useSeoMeta({
 
 <template>
   <MainHeader>
-    <template v-slot:options></template>
+    <template v-slot:options>
+      <RouterLink title="پست‌ها" to="/posts"
+        class="ms-3 p-[-20px] m-1 transition ease-in-out delay-150 hover:bg-c-bg-soft flex items-center justify-center rounded-full aspect-square w-auto">
+        <SVGBack></SVGBack>
+      </RouterLink>
+    </template>
   </MainHeader>
   <div v-if="blog" dir="rtl" class="relative font-sahel post-page">
     <div class="bg-c-bg z-50 container max-w-[47.5rem] pb-6 sm:px-6 px-3 pt-1 w-full mx-auto">
