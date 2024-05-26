@@ -91,9 +91,9 @@ const shapeClass = computed(() => {
 
 :not(.dark) .theme-toggle--button .shape,
 .theme-toggle--button .shape.sun {
-  width: 1em;
-  height: 1em;
-  box-shadow: inset -0.7em -0.7em var(--color);
+  width: 16px;
+  height: 16px;
+  box-shadow: inset -10px -10px var(--color);
 }
 :not(.dark) .theme-toggle--button .shape ~ .rays--container,
 .theme-toggle--button .shape.sun ~ .rays--container {
