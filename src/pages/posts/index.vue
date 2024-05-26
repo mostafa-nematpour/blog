@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useBlogStore } from '~/stores/blog'
 import BlogItem from '~/components/blog/BlogItem.vue'
-import FixedHeader from '~/components/header/FixedHeader.vue'
+import HeaderSticky from '~/components/header/HeaderSticky.vue'
 const store = useBlogStore()
 const blogs = computed(() => {
   return store.blogsData
@@ -18,9 +18,9 @@ useSeoMeta({
 </script>
 
 <template>
-  <FixedHeader>
+  <HeaderSticky>
     <h1 class="text-center font-medium text-3xl text-c-text-3">نوشته‌ها</h1>
-  </FixedHeader>
+  </HeaderSticky>
   <div dir="rtl" class="container max-w-[36.25rem] w-full mx-auto pt-[56px]">
     <template v-for="blogItem in blogs" :key="blogItem.id">
       <BlogItem :blog="blogItem" />
