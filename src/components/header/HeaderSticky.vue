@@ -1,21 +1,21 @@
 <script setup>
 import MainHeader from '~/components/header/MainHeader.vue'
+import { useEventListener } from '~/composables/event'
 
 const headerWrapper = ref(null)
+
+const scrollThreshold = 500;
+const scrollUpThreshold = 160;
+const defaultTop = -1
+
+let headerTop = defaultTop
 let currentScrollY = 0
 let lastScrollY = 0
-
-let headerTop = -1
-const scrollThreshold = 500;
-
+let lastFullOpen = 0
+// for first time after refreshed page header be open
 let refresh = true;
 
-onMounted(() => {
-    window.addEventListener('scroll', handleScroll)
-})
-onUnmounted(() => {
-    window.removeEventListener('scroll', handleScroll)
-})
+useEventListener(window, 'scroll', handleScroll)
 
 function handleScroll() {
     if (!headerWrapper.value) return;
@@ -27,21 +27,29 @@ function handleScroll() {
     }
 
     if (currentScrollY < scrollThreshold) {
-        headerTop = -1
+        headerTop = defaultTop
         headerWrapper.value.style.top = `${headerTop}px`;
         lastScrollY = currentScrollY;
         return
     }
 
     // when scroll up
-    if (currentScrollY > lastScrollY) {
+    if (
+        currentScrollY > lastScrollY && /* check scroll up */
+        currentScrollY - lastFullOpen > scrollUpThreshold /* check scroll up threshold (when up after down)*/
+    ) {
         headerTop = Math.max(
             -headerWrapper.value.clientHeight,
-            headerTop - (currentScrollY - lastScrollY))
+            headerTop - (currentScrollY - lastScrollY)
+        )
+
     }
     // when scroll down
-    else if (currentScrollY < lastScrollY /*- scrollUpThreshold || currentScrollY < scrollThreshold*/) {
-        headerTop = Math.min(-1, headerTop + (lastScrollY - currentScrollY))
+    else if (currentScrollY < lastScrollY) {
+        headerTop = Math.min(defaultTop, headerTop + (lastScrollY - currentScrollY))
+        if (headerTop == defaultTop) {
+            lastFullOpen = currentScrollY
+        }
     }
 
     lastScrollY = currentScrollY;
