@@ -49,18 +49,19 @@ const blogLink = (id: Number, slug: String) => {
 </template>
 
 <style scoped>
-.category {
-  background-clip: border-box;
-  background-clip: text !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-}
-
 .border-top {
   border-top: 1px solid #6f717231 !important;
 }
 
 .border-top:first-child {
   border-top: 0px solid !important;
+}
+</style>
+<style>
+.blog-item .category {
+  background-clip: border-box;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
 }
 </style>

@@ -114,8 +114,8 @@ useSeoMeta({
   </div>
 </template>
 
-<style scoped>
-.category {
+<style>
+.post-page .category {
   background-clip: border-box;
   background-clip: text !important;
   -webkit-background-clip: text;
