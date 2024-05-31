@@ -56,6 +56,7 @@ const shapeClass = computed(() => {
 .theme-toggle--button span {
   display: inline-block;
 }
+
 .theme-toggle--button .rays--container {
   width: 100%;
   height: 100%;
@@ -64,27 +65,36 @@ const shapeClass = computed(() => {
   align-items: center;
   justify-content: center;
 }
+
 .theme-toggle--button .rays--container .ray {
   position: absolute;
   border-radius: 50%;
   transition: all 500ms;
 }
+
 .theme-toggle--button .rays--container .ray:nth-child(2) {
   transform: rotate(45deg);
 }
+
 .theme-toggle--button .rays--container .ray:nth-child(3) {
   transform: rotate(90deg);
 }
+
 .theme-toggle--button .rays--container .ray:nth-child(4) {
   transform: rotate(-45deg);
 }
+
 .theme-toggle--button .shape {
   z-index: 1;
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
   border: 2px solid #f1f1f1;
   transition: all 500ms;
 }
+
 .dark .theme-toggle--button .shape {
   border: 2px solid #ffffff00;
 }
@@ -95,13 +105,15 @@ const shapeClass = computed(() => {
   height: 16px;
   box-shadow: inset -10px -10px var(--color);
 }
-:not(.dark) .theme-toggle--button .shape ~ .rays--container,
-.theme-toggle--button .shape.sun ~ .rays--container {
+
+:not(.dark) .theme-toggle--button .shape~.rays--container,
+.theme-toggle--button .shape.sun~.rays--container {
   transform: rotate(90deg);
   transition: transform 750ms 400ms;
 }
-:not(.dark) .theme-toggle--button .shape ~ .rays--container .ray,
-.theme-toggle--button .shape.sun ~ .rays--container .ray {
+
+:not(.dark) .theme-toggle--button .shape~.rays--container .ray,
+.theme-toggle--button .shape.sun~.rays--container .ray {
   width: 0.334em;
   height: 1.667em;
   background-color: var(--color);
@@ -113,9 +125,11 @@ const shapeClass = computed(() => {
   height: 1.667em;
   box-shadow: inset -0.5em -0.5em var(--color);
 }
-.dark .theme-toggle--button .shape:not(.sun) ~ .rays--container .ray,
-.theme-toggle--button .shape.moon ~ .rays--container .ray {
+
+.dark .theme-toggle--button .shape:not(.sun)~.rays--container .ray,
+.theme-toggle--button .shape.moon~.rays--container .ray {
   width: 0;
   height: 0;
+  background-color: unset;
 }
 </style>
